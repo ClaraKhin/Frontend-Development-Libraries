@@ -1,0 +1,95 @@
+// Nesting can help organize the code by placing child style rules within the respective parent elements.
+// The following code demonstrates how to nest the .header and h2 elements within the .blog-post element.
+
+// $text-color: red;
+// .blog-post {
+//   .header {
+//     text-align: center;
+//   }
+//   .blog-post,
+//   h2 {
+//     color: $text-color;
+//   }
+// }
+
+//Arguments can be made optional by giving the parameters default values.
+
+// @mixin shape($w, $h, $bg-color) {
+//   width: $w;
+//   height: $h;
+//   background-color: $bg-color;
+// }
+// #square {
+//   @include shape(50px, 50px, red);
+// }
+// #rect-a {
+//   @include shape(100px, 50px, blue);
+// }
+// #rect-b {
+//   @include shape(50px, 100px, orange);
+// }
+
+//Just like in JavaScript, the "@if" “@else if” and “@else” directives test for more conditions.
+
+// @mixin border-stroke($val) {
+//   @if $val == light {
+//     border: 1px solid black;
+//   } @else if $val == medium {
+//     border: 3px solid black;
+//   } @else if $val == heavy {
+//     border: 6px solid black;
+//   } @else {
+//     border: none;
+//   }
+// }
+
+// #box {
+//   width: 150px;
+//   height: 150px;
+//   background-color: red;
+//   @include border-stroke(medium);
+// }
+
+//The @for directive can be used to loop through a block of code a set number of times.
+
+// @for $j from 1 to 6 {
+//   .text-#{$j} {
+//     font-size: 15px * $j;
+//   }
+// }
+
+//The @each directive can be used to loop through a list of values.
+// @each $color in blue, black, red {
+//   .#{$color}-bg {
+//     background-color: $color;
+//   }
+// }
+
+// div {
+//   height: 200px;
+//   width: 200px;
+// }
+
+//The @while directive can be used to loop through a block of code while a condition is met.
+// $x: 1;
+// @while $x < 6 {
+//   .text-#{$x} {
+//     font-size: 15px * $x;
+//   }
+//   $x: $x + 1;
+// }
+
+//The @extend directive can be used to share a set of CSS properties from one selector to another.
+//Sass has a feature called “extend” that makes it easy to borrow the CSS rules from one element and build upon them in another.
+h3 {
+  text-align: center;
+}
+.info {
+  width: 200px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+.info-important {
+  @extend .info;
+  background-color: magenta;
+}
